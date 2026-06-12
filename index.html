@@ -158,6 +158,36 @@
     background:var(--gold);color:#0a0f24;font-size:10px;font-weight:900;
     padding:2px 10px;border-radius:99px;white-space:nowrap;
   }
+  .team.out{filter:grayscale(1);opacity:.55}
+  .team.out:hover{transform:none;border-color:var(--line);box-shadow:none}
+  .team .stamp{
+    position:absolute;top:36%;left:50%;transform:translate(-50%,-50%) rotate(-12deg);
+    font-size:8.5px;font-weight:900;letter-spacing:.1em;color:#ff6b7a;
+    border:2px solid #ff6b7a;border-radius:6px;padding:3px 6px;
+    background:rgba(10,15,36,.78);text-transform:uppercase;white-space:nowrap;
+  }
+
+  /* ── Departure lounge board ── */
+  #lounge .board{
+    border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    background:#0d1330;font-family:'Courier New',ui-monospace,monospace;
+  }
+  .board-head,.board-row{
+    display:grid;grid-template-columns:44px 1fr 110px 110px;gap:10px;
+    align-items:center;padding:11px 16px;
+  }
+  .board-head{background:rgba(255,255,255,.05);font-size:10.5px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+  .board-row{border-top:1px solid var(--line);font-size:13.5px}
+  .board-row .fimg{width:32px}
+  .board-row .fl{color:var(--muted);font-size:11.5px}
+  .status-dep{color:#ffb547;font-weight:900;font-size:11px;letter-spacing:.15em;animation:blink 1.6s steps(2) infinite}
+  @keyframes blink{50%{opacity:.35}}
+  .vote-card.broken{opacity:.65}
+  .vote-card.broken .v-team{color:#ff6b7a}
+  @media (max-width:560px){
+    .board-head,.board-row{grid-template-columns:40px 1fr 90px}
+    .board-head div:nth-child(3),.board-row div:nth-child(3){display:none}
+  }
 
   /* ── Modal ── */
   .overlay{
@@ -240,6 +270,7 @@
     <a href="#wall">Team Picks</a>
     <a href="#teams">Pick a Team</a>
     <a href="#poll">Fan Favorites</a>
+    <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026" target="_blank" rel="noopener" style="color:var(--gold)">Official FIFA Site ↗</a>
   </div>
 </nav>
 <div class="tri-bar"></div>
@@ -260,6 +291,7 @@
 <section id="wall">
   <div class="sec-head"><h2 class="display">Team Leaderboard</h2><span class="tag">WHO PICKED WHAT</span></div>
   <p class="sec-desc">Live record of everyone's champion pick. When the Final ends, we'll know who the office oracle is 🔮</p>
+  <div id="lockNote" class="demo-note" style="display:none"></div>
   <div id="demoNote" class="demo-note" style="display:none">
     ⚠️ Demo mode: picks are stored only in this browser tab. To share records across the team, deploy the Google Apps Script backend and paste its URL into API_URL in the code.
   </div>
@@ -275,6 +307,15 @@
   <div class="grid" id="teamGrid"></div>
 </section>
 
+<section id="lounge" style="display:none">
+  <div class="sec-head"><h2 class="display">Departure Lounge</h2><span class="tag">SEE YOU IN 2030 🛫</span></div>
+  <p class="sec-desc">Knocked out and heading home. Thanks for the memories — next boarding call: World Cup 2030.</p>
+  <div class="board">
+    <div class="board-head"><div></div><div>Team</div><div>Flight</div><div>Status</div></div>
+    <div id="boardRows"></div>
+  </div>
+</section>
+
 <section id="poll">
   <div class="sec-head"><h2 class="display">Global Fan Favorites</h2><span class="tag">TOP 10 CONTENDERS</span></div>
   <p class="sec-desc">Simulated worldwide support based on pre-tournament title odds. Tap any team to make it your pick!</p>
@@ -285,16 +326,18 @@
   <div class="modal">
     <div class="tri-bar"></div>
     <div class="modal-body">
-      <div class="trophy">🏆</div>
+      <div class="trophy" id="mIcon">🏆</div>
       <div class="m-flag" id="mFlag"></div>
       <h3 class="display" id="mName"></h3>
       <p class="quote" id="mQuote"></p>
-      <p class="m-stat"><b id="mPct"></b> of fans worldwide are with you</p>
-      <div class="m-form">
+      <p class="m-stat" id="mStat"><b id="mPct"></b> of fans worldwide are with you</p>
+      <p class="m-hint" id="mOut" style="display:none;color:#ff6b7a">✈️ This team has been eliminated and can't be picked. Choose one that's still in the hunt!</p>
+      <div class="m-form" id="mForm">
         <input id="voterName" type="text" maxlength="20" placeholder="Your name, e.g. Darren" aria-label="Your name">
         <button id="btnSubmit">Lock it in 🔒</button>
       </div>
-      <p class="m-hint">Your pick goes on the Team Leaderboard. Picking again replaces your previous pick.</p>
+      <p class="m-hint" id="mHint">Your pick goes on the Team Leaderboard. Picking again replaces your previous pick.</p>
+      <p class="m-hint" id="mLocked" style="display:none;color:var(--gold)">🔒 Picks are locked — the knockout rounds are underway. The leaderboard is frozen until a champion is crowned!</p>
       <div class="m-btns">
         <button class="btn-share" id="btnShare">Copy share text</button>
         <button class="btn-close" id="btnClose">Keep browsing</button>
@@ -308,6 +351,7 @@
 
 <footer>
   An unofficial fan game made for the Global HR Team · Not affiliated with FIFA · No real wagers, bragging rights only 😄<br>
+  For official fixtures, results and news, visit <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026" target="_blank" rel="noopener" style="color:var(--gold)">FIFA.com — World Cup 26 ↗</a><br>
   FIFA World Cup 26 · June 11 – July 19, 2026 · USA / Canada / Mexico · Football is round ⚽
 </footer>
 
@@ -374,6 +418,22 @@ const TEAMS = [
 /* Real flag images (flagcdn), falling back to emoji if blocked */
 const flagImg=(t,w)=>`<img class="fimg" src="https://flagcdn.com/w${w}/${t.code}.png" srcset="https://flagcdn.com/w${w*2}/${t.code}.png 2x" alt="Flag of ${t.n}" loading="lazy" onerror="this.outerHTML='${t.f}'">`;
 
+/* ── Eliminated teams ──────────────────────────────────────────
+   As teams get knocked out, add their EXACT English names here
+   (copy from the TEAMS list above). They'll be stamped "OUT" in
+   the grid and appear on the Departure Lounge board.
+   Example: const ELIMINATED = ["Qatar","New Zealand","Haiti"];   */
+const ELIMINATED = [];
+const isOut = name => ELIMINATED.includes(name);
+
+const FAREWELLS = [
+  "Thanks for the memories — the flight home is now boarding. 🛫",
+  "They came, they fought, they're checking out of the hotel early.",
+  "Group-stage warriors, knockout-round tourists. See you in 2030!",
+  "The dream is over… until the next one. Four more years!",
+  "Somewhere, a team bus is quietly driving to the airport.",
+];
+
 const QUOTES = {
   "Spain":"Euro champions with 18-year-old Yamal pulling the strings — can the dynasty go back-to-back?",
   "France":"Mbappé leads a loaded squad. Ranked world No. 1 for a reason.",
@@ -406,6 +466,11 @@ const stars = t => "⭐".repeat(Math.min(5, Math.max(0, Math.round(Math.log2(t.h
    Leave empty = demo mode (picks live only in this browser tab)        */
 const API_URL = "https://script.google.com/macros/s/AKfycbzvh71YjhRrDktRA34eOBePOXeoxv83GQ48jD-W9jzsSaGEAu8wPIikP1hCmvvr99SL/exec";
 
+/* ── Pick deadline: picks lock when the Round of 32 kicks off ──
+   June 28, 2026 00:00 ET — all group games done, knockouts not yet started */
+const LOCK_DATE = new Date("2026-06-28T00:00:00-04:00");
+const isLocked = () => Date.now() >= LOCK_DATE.getTime();
+
 let votes = []; // {name, team, ts}
 const teamByName = n => TEAMS.find(t=>t.n===n);
 
@@ -420,6 +485,8 @@ async function loadVotes(){
 }
 
 async function submitVote(){
+  if(isLocked()){ showToastMsg("Picks are locked — the knockouts are underway! 🔒"); return; }
+  if(current && isOut(current.n)){ showToastMsg("That team is out — pick one that's still alive! ⚽"); return; }
   const input = document.getElementById("voterName");
   const name = input.value.trim();
   if(!name){ input.focus(); input.placeholder="Enter your name first!"; return; }
@@ -480,11 +547,13 @@ function renderWall(){
 
   listBox.innerHTML = lv.map(v=>{
     const t = teamByName(v.team);
+    const out = isOut(v.team);
     const d = new Date(Number(v.ts)||v.ts);
     const time = isNaN(d) ? "" : d.toLocaleDateString(undefined,{month:"short",day:"numeric"})+" "+d.toLocaleTimeString(undefined,{hour:"2-digit",minute:"2-digit"});
-    return `<div class="vote-card">
+    const note = out ? ` 💔 Eliminated${isLocked()?"":" — repick before the deadline!"}` : "";
+    return `<div class="vote-card${out?" broken":""}">
       ${t?flagImg(t,40):"⚽"}
-      <div><div class="v-name">${escapeHtml(v.name)}</div><div class="v-team">Picked ${escapeHtml(v.team)}</div></div>
+      <div><div class="v-name">${escapeHtml(v.name)}</div><div class="v-team">Picked ${escapeHtml(v.team)}${note}</div></div>
       <div class="v-time">${time}</div>
     </div>`;
   }).join("");
@@ -548,8 +617,9 @@ function renderGrid(){
     .filter(t=>(filterConf==="All"||t.c===filterConf)&&t.n.toLowerCase().includes(keyword.toLowerCase()))
     .forEach(t=>{
       const card=document.createElement("button");
-      card.className="team"+(myPick===t.n?" picked":"");
+      card.className="team"+(myPick===t.n?" picked":"")+(isOut(t.n)?" out":"");
       card.innerHTML=`
+        ${isOut(t.n)?'<div class="stamp">Out · See you in 2030</div>':''}
         <div class="flag">${flagImg(t,80)}</div>
         <div class="name">${t.n}${t.host?" 🏟️":""}</div>
         <div class="conf">${t.c}</div>
@@ -565,12 +635,33 @@ document.getElementById("searchBox").addEventListener("input",e=>{keyword=e.targ
 const overlay=document.getElementById("overlay");
 let current=null;
 function pick(t){
-  myPick=t.n; current=t;
-  try{ if(window.storage) window.storage.set("wc2026-pick", t.n); }catch(e){}
+  current=t;
+  const out = isOut(t.n);
+  const locked = isLocked();
   document.getElementById("mFlag").innerHTML=flagImg(t,160);
+  if(out){
+    document.getElementById("mIcon").textContent="🛫";
+    document.getElementById("mName").textContent=`${t.n} — see you in 2030`;
+    document.getElementById("mQuote").textContent=FAREWELLS[Math.floor(Math.random()*FAREWELLS.length)];
+    document.getElementById("mStat").style.display="none";
+    document.getElementById("mForm").style.display="none";
+    document.getElementById("mHint").style.display="none";
+    document.getElementById("mLocked").style.display="none";
+    document.getElementById("mOut").style.display="block";
+    overlay.classList.add("show");
+    return; // no pick, no confetti — just a respectful send-off
+  }
+  myPick=t.n;
+  try{ if(window.storage) window.storage.set("wc2026-pick", t.n); }catch(e){}
+  document.getElementById("mIcon").textContent="🏆";
   document.getElementById("mName").textContent=`${t.n} to win it all!`;
   document.getElementById("mQuote").textContent=QUOTES[t.n]||DEFAULT_QUOTE(t.n);
+  document.getElementById("mStat").style.display="block";
   document.getElementById("mPct").textContent=pct(t).toFixed(1)+"%";
+  document.getElementById("mOut").style.display="none";
+  document.getElementById("mForm").style.display   = locked ? "none" : "flex";
+  document.getElementById("mHint").style.display   = locked ? "none" : "block";
+  document.getElementById("mLocked").style.display = locked ? "block" : "none";
   overlay.classList.add("show");
   renderGrid(); renderPoll(); confetti();
 }
@@ -616,6 +707,21 @@ function confetti(){
   })();
 }
 
+/* ───────── Departure lounge ───────── */
+function renderLounge(){
+  const sec=document.getElementById("lounge");
+  const outs=TEAMS.filter(t=>isOut(t.n));
+  if(!outs.length){ sec.style.display="none"; return; }
+  sec.style.display="block";
+  document.getElementById("boardRows").innerHTML = outs.map(t=>`
+    <div class="board-row">
+      <div>${flagImg(t,40)}</div>
+      <div>${t.n}<div class="fl">Destination: Home sweet home</div></div>
+      <div class="fl">WC-${t.code.toUpperCase().replace("GB-","")}</div>
+      <div class="status-dep">DEPARTED</div>
+    </div>`).join("");
+}
+
 /* ───────── Init ───────── */
 (async function init(){
   try{
@@ -626,7 +732,15 @@ function confetti(){
       if(savedName&&savedName.value) document.getElementById("voterName").value=savedName.value;
     }
   }catch(e){}
-  renderChips(); renderGrid(); renderPoll();
+  renderChips(); renderGrid(); renderPoll(); renderLounge();
+  // Deadline banner
+  const ln = document.getElementById("lockNote");
+  ln.style.display = "block";
+  if(isLocked()){
+    ln.innerHTML = "🔒 <b>Picks are locked.</b> The Round of 32 is underway — the board below is final. May the best oracle win!";
+  }else{
+    ln.innerHTML = "⏳ <b>Pick deadline:</b> " + LOCK_DATE.toLocaleString(undefined,{weekday:"short",month:"short",day:"numeric",hour:"2-digit",minute:"2-digit",timeZoneName:"short"}) + " — when the Round of 32 kicks off, all picks are frozen. You can change your pick any time before then.";
+  }
   loadVotes();
   if(API_URL) setInterval(loadVotes, 30000); // refresh the leaderboard every 30s
 })();
