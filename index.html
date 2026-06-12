@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026 世界盃冠軍預測站｜誰能捧起金盃？</title>
+<title>WC26 Champion Picks · Global HR Team</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --night:#0a0f24;        /* 深夜球場藍 */
+    --night:#0a0f24;
     --night-2:#101736;
     --card:#161e42;
     --line:rgba(255,255,255,.08);
     --txt:#eef1ff;
     --muted:#8b93b8;
-    --mx-green:#00b46e;     /* 墨西哥綠 */
-    --ca-red:#ff3b4e;       /* 加拿大紅 */
-    --us-blue:#2f7bff;      /* 美國藍 */
+    --mx-green:#00b46e;
+    --ca-red:#ff3b4e;
+    --us-blue:#2f7bff;
     --gold:#ffd166;
     --tri:linear-gradient(90deg,var(--mx-green),var(--ca-red),var(--us-blue));
   }
@@ -24,23 +24,23 @@
   html{scroll-behavior:smooth}
   body{
     background:var(--night);color:var(--txt);
-    font-family:'Noto Sans TC',-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif;
+    font-family:'Inter',-apple-system,'Segoe UI',sans-serif;
     min-height:100vh;overflow-x:hidden;
   }
-  .display{font-family:'Anton','Arial Narrow Bold','Noto Sans TC',sans-serif;letter-spacing:.02em}
+  .display{font-family:'Anton','Arial Narrow Bold',Impact,sans-serif;letter-spacing:.02em}
 
-  /* ── 頂部導覽 ── */
+  /* ── Nav ── */
   nav{
     position:sticky;top:0;z-index:50;
     display:flex;align-items:center;gap:18px;
     padding:14px 24px;background:rgba(10,15,36,.85);
     backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
   }
-  .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:17px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:16px}
   .logo .ball{font-size:22px}
   .logo .badge{
     font-size:10px;font-weight:700;color:#0a0f24;background:var(--tri);
-    padding:2px 8px;border-radius:99px;letter-spacing:.08em;
+    padding:2px 9px;border-radius:99px;letter-spacing:.08em;white-space:nowrap;
   }
   nav .links{margin-left:auto;display:flex;gap:20px;font-size:13.5px;color:var(--muted)}
   nav .links a{color:inherit;text-decoration:none;transition:color .2s}
@@ -48,11 +48,8 @@
   .tri-bar{height:3px;background:var(--tri)}
 
   /* ── Hero ── */
-  header{
-    position:relative;text-align:center;
-    padding:72px 20px 56px;overflow:hidden;
-  }
-  header::before{ /* 球場光束 */
+  header{position:relative;text-align:center;padding:64px 20px 52px;overflow:hidden}
+  header::before{
     content:"";position:absolute;inset:-40% -20% auto;height:140%;
     background:
       radial-gradient(600px 300px at 18% 0%,rgba(0,180,110,.22),transparent 70%),
@@ -61,41 +58,60 @@
     pointer-events:none;
   }
   .eyebrow{
-    display:inline-block;font-size:12px;letter-spacing:.35em;color:var(--muted);
+    display:inline-block;font-size:12px;letter-spacing:.32em;color:var(--muted);
     text-transform:uppercase;margin-bottom:18px;
   }
-  h1{font-size:clamp(44px,9vw,96px);line-height:1.04;text-transform:uppercase}
-  h1 .stroke{
-    color:transparent;-webkit-text-stroke:2px rgba(238,241,255,.65);
-  }
+  h1{font-size:clamp(42px,8.5vw,92px);line-height:1.04;text-transform:uppercase}
+  h1 .stroke{color:transparent;-webkit-text-stroke:2px rgba(238,241,255,.65)}
   h1 .gold{background:linear-gradient(180deg,#ffe9a8,var(--gold) 60%,#c98f1b);-webkit-background-clip:text;background-clip:text;color:transparent}
   .sub{margin-top:16px;color:var(--muted);font-size:15px}
   .sub b{color:var(--txt)}
-
-  /* 倒數計時 */
-  .countdown{
-    display:flex;justify-content:center;gap:14px;margin-top:34px;flex-wrap:wrap;
-  }
-  .cd-cell{
-    min-width:84px;padding:14px 10px;border:1px solid var(--line);
-    border-radius:14px;background:rgba(255,255,255,.03);
-  }
+  .countdown{display:flex;justify-content:center;gap:14px;margin-top:32px;flex-wrap:wrap}
+  .cd-cell{min-width:84px;padding:14px 10px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03)}
   .cd-num{font-size:36px;line-height:1}
   .cd-label{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.15em}
   .cta{
-    display:inline-block;margin-top:36px;padding:14px 38px;border-radius:99px;
+    display:inline-block;margin-top:34px;padding:14px 38px;border-radius:99px;
     background:var(--tri);color:#0a0f24;font-weight:900;font-size:16px;
-    text-decoration:none;box-shadow:0 8px 30px rgba(47,123,255,.35);
-    transition:transform .15s;
+    text-decoration:none;box-shadow:0 8px 30px rgba(47,123,255,.35);transition:transform .15s;
   }
   .cta:hover{transform:translateY(-2px) scale(1.02)}
 
-  /* ── 熱門看板 ── */
-  section{max-width:1100px;margin:0 auto;padding:48px 20px}
-  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+  /* ── Sections ── */
+  section{max-width:1100px;margin:0 auto;padding:46px 20px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;flex-wrap:wrap}
   .sec-head h2{font-size:clamp(26px,4vw,38px);text-transform:uppercase}
   .sec-head .tag{font-size:12px;color:var(--muted);letter-spacing:.2em}
   .sec-desc{color:var(--muted);font-size:13.5px;margin-bottom:26px}
+
+  /* ── Flags ── */
+  .fimg{border-radius:4px;box-shadow:0 3px 10px rgba(0,0,0,.45);display:inline-block;vertical-align:middle;object-fit:cover}
+  .team .flag{min-height:42px;display:flex;align-items:center;justify-content:center;font-size:38px;line-height:1}
+  .team .flag .fimg{width:56px;height:auto}
+  .poll-flag .fimg{width:34px;height:auto}
+  .m-flag .fimg{width:104px;height:auto;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+
+  /* ── Team leaderboard (top) ── */
+  .wall-tally{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+  .tally-row{display:grid;grid-template-columns:34px 140px 1fr 60px;gap:10px;align-items:center;font-size:13.5px}
+  .tally-row .poll-track{height:10px}
+  .tally-row .cnt{text-align:right;font-weight:900;color:var(--gold)}
+  .wall-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+  .vote-card{
+    display:flex;align-items:center;gap:12px;padding:12px 14px;
+    border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02);
+  }
+  .vote-card .fimg{width:36px}
+  .vote-card .v-name{font-weight:700;font-size:14px}
+  .vote-card .v-team{font-size:12px;color:var(--muted);margin-top:2px}
+  .vote-card .v-time{margin-left:auto;font-size:10.5px;color:var(--muted);white-space:nowrap}
+  .wall-empty{color:var(--muted);font-size:13.5px;text-align:center;padding:26px;border:1px dashed var(--line);border-radius:14px}
+  .demo-note{
+    font-size:12px;color:var(--gold);background:rgba(255,209,102,.08);
+    border:1px solid rgba(255,209,102,.3);border-radius:10px;padding:10px 14px;margin-bottom:18px;
+  }
+
+  /* ── Fan favorites poll ── */
   .poll{display:flex;flex-direction:column;gap:10px}
   .poll-row{
     display:grid;grid-template-columns:34px 1fr 56px;align-items:center;gap:12px;
@@ -111,7 +127,7 @@
   .poll-fill{height:100%;border-radius:99px;background:var(--tri);width:0;transition:width 1s cubic-bezier(.2,.8,.2,1)}
   .poll-pct{text-align:right;font-weight:900;font-size:15px;color:var(--gold)}
 
-  /* ── 球隊選區 ── */
+  /* ── Team picker grid ── */
   .controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
   .chip{
     padding:8px 16px;border-radius:99px;border:1px solid var(--line);
@@ -129,26 +145,21 @@
   .team{
     position:relative;padding:18px 12px 14px;border-radius:14px;text-align:center;
     border:1px solid var(--line);background:var(--card);cursor:pointer;
-    transition:transform .15s,border-color .2s,box-shadow .2s;
+    transition:transform .15s,border-color .2s,box-shadow .2s;font-family:inherit;color:var(--txt);
   }
   .team:hover{transform:translateY(-4px);border-color:rgba(255,209,102,.6);box-shadow:0 10px 24px rgba(0,0,0,.4)}
   .team:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-  .fimg{border-radius:4px;box-shadow:0 3px 10px rgba(0,0,0,.45);display:inline-block;vertical-align:middle;object-fit:cover}
-  .team .flag{font-size:38px;line-height:1;min-height:42px;display:flex;align-items:center;justify-content:center}
-  .team .flag .fimg{width:56px;height:auto}
-  .poll-flag .fimg{width:34px;height:auto}
-  .m-flag .fimg{width:104px;height:auto;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
   .team .name{font-weight:700;font-size:13.5px;margin-top:10px}
-  .team .conf{font-size:10.5px;color:var(--muted);margin-top:3px;letter-spacing:.1em}
+  .team .conf{font-size:10.5px;color:var(--muted);margin-top:3px;letter-spacing:.1em;text-transform:uppercase}
   .team .stars{font-size:11px;color:var(--gold);margin-top:6px;letter-spacing:.1em;min-height:14px}
   .team.picked{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold),0 12px 30px rgba(255,209,102,.25)}
   .team.picked::after{
-    content:"我的預測";position:absolute;top:-9px;left:50%;transform:translateX(-50%);
+    content:"MY PICK";position:absolute;top:-9px;left:50%;transform:translateX(-50%);
     background:var(--gold);color:#0a0f24;font-size:10px;font-weight:900;
     padding:2px 10px;border-radius:99px;white-space:nowrap;
   }
 
-  /* ── 預測卡 Modal ── */
+  /* ── Modal ── */
   .overlay{
     position:fixed;inset:0;background:rgba(5,8,20,.8);backdrop-filter:blur(6px);
     display:none;align-items:center;justify-content:center;z-index:100;padding:20px;
@@ -161,17 +172,30 @@
   }
   @keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
   .modal .tri-bar{height:5px}
-  .modal-body{padding:34px 28px 28px}
-  .modal .trophy{font-size:52px}
-  .modal .m-flag{font-size:64px;margin-top:6px}
-  .modal h3{font-size:30px;margin-top:10px;text-transform:uppercase}
+  .modal-body{padding:32px 28px 26px}
+  .modal .trophy{font-size:50px}
+  .modal .m-flag{margin-top:8px;font-size:64px}
+  .modal h3{font-size:28px;margin-top:12px;text-transform:uppercase}
   .modal .quote{
     margin-top:14px;color:var(--muted);font-size:14px;line-height:1.7;
     border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding:14px 0;
   }
   .modal .m-stat{margin-top:14px;font-size:13px;color:var(--muted)}
   .modal .m-stat b{color:var(--gold);font-size:18px}
-  .m-btns{display:flex;gap:10px;margin-top:22px}
+  .m-form{display:flex;gap:8px;margin-top:18px}
+  .m-form input{
+    flex:1;min-width:0;padding:12px 16px;border-radius:12px;border:1px solid var(--line);
+    background:rgba(255,255,255,.05);color:var(--txt);font-size:14px;font-family:inherit;outline:none;
+  }
+  .m-form input:focus{border-color:var(--gold)}
+  .m-form button{
+    padding:12px 18px;border-radius:12px;border:none;cursor:pointer;
+    background:var(--gold);color:#0a0f24;font-weight:900;font-size:14px;
+    font-family:inherit;transition:transform .15s;white-space:nowrap;
+  }
+  .m-form button:hover{transform:translateY(-2px)}
+  .m-hint{font-size:11.5px;color:var(--muted);margin-top:8px}
+  .m-btns{display:flex;gap:10px;margin-top:20px}
   .m-btns button{
     flex:1;padding:12px;border-radius:12px;border:none;cursor:pointer;
     font-weight:900;font-size:14px;font-family:inherit;transition:transform .15s;
@@ -181,43 +205,6 @@
   .btn-close{background:rgba(255,255,255,.08);color:var(--txt)}
 
   canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:200}
-
-  /* ── 押注表單 ── */
-  .m-form{display:flex;gap:8px;margin-top:18px}
-  .m-form input{
-    flex:1;padding:12px 16px;border-radius:12px;border:1px solid var(--line);
-    background:rgba(255,255,255,.05);color:var(--txt);font-size:14px;
-    font-family:inherit;outline:none;
-  }
-  .m-form input:focus{border-color:var(--gold)}
-  .m-form button{
-    padding:12px 20px;border-radius:12px;border:none;cursor:pointer;
-    background:var(--gold);color:#0a0f24;font-weight:900;font-size:14px;
-    font-family:inherit;transition:transform .15s;white-space:nowrap;
-  }
-  .m-form button:hover{transform:translateY(-2px)}
-  .m-hint{font-size:11.5px;color:var(--muted);margin-top:8px}
-
-  /* ── 辦公室押注牆 ── */
-  .wall-tally{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
-  .tally-row{display:grid;grid-template-columns:34px 110px 1fr 44px;gap:10px;align-items:center;font-size:13.5px}
-  .tally-row .poll-track{height:10px}
-  .tally-row .cnt{text-align:right;font-weight:900;color:var(--gold)}
-  .wall-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-  .vote-card{
-    display:flex;align-items:center;gap:12px;padding:12px 14px;
-    border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02);
-  }
-  .vote-card .fimg{width:36px}
-  .vote-card .v-name{font-weight:700;font-size:14px}
-  .vote-card .v-team{font-size:12px;color:var(--muted);margin-top:2px}
-  .vote-card .v-time{margin-left:auto;font-size:10.5px;color:var(--muted);white-space:nowrap}
-  .wall-empty{color:var(--muted);font-size:13.5px;text-align:center;padding:26px;border:1px dashed var(--line);border-radius:14px}
-  .demo-note{
-    font-size:12px;color:var(--gold);background:rgba(255,209,102,.08);
-    border:1px solid rgba(255,209,102,.3);border-radius:10px;padding:10px 14px;margin-bottom:18px;
-  }
-
   footer{
     text-align:center;padding:40px 20px 50px;color:var(--muted);
     font-size:12px;line-height:1.9;border-top:1px solid var(--line);margin-top:30px;
@@ -237,6 +224,7 @@
     .grid{grid-template-columns:repeat(auto-fill,minmax(108px,1fr))}
     .cd-cell{min-width:70px}
     .cd-num{font-size:28px}
+    .tally-row{grid-template-columns:34px 100px 1fr 50px}
   }
 </style>
 </head>
@@ -245,52 +233,52 @@
 <nav>
   <div class="logo">
     <span class="ball">⚽</span>
-    <span>世界盃冠軍預測站</span>
-    <span class="badge">2026 美加墨</span>
+    <span>WC26 Champion Picks</span>
+    <span class="badge">GLOBAL HR TEAM</span>
   </div>
   <div class="links">
-    <a href="#poll">全球熱門榜</a>
-    <a href="#teams">48 強選區</a>
-    <a href="#wall">押注牆</a>
+    <a href="#wall">Team Picks</a>
+    <a href="#teams">Pick a Team</a>
+    <a href="#poll">Fan Favorites</a>
   </div>
 </nav>
 <div class="tri-bar"></div>
 
 <header>
-  <div class="eyebrow">FIFA WORLD CUP 26 · 非官方球迷預測</div>
-  <h1 class="display"><span class="stroke">誰能捧起</span><br><span class="gold">世界盃金盃？</span></h1>
-  <p class="sub">史上最大規模 <b>48 強</b>、<b>104 場</b> 比賽已開踢 —— 決賽 <b>7 月 20 日凌晨</b>（台北時間）於紐約大都會人壽球場登場</p>
-  <div class="countdown" id="countdown" aria-label="決賽倒數">
-    <div class="cd-cell"><div class="cd-num display" id="cd-d">--</div><div class="cd-label">天 DAYS</div></div>
-    <div class="cd-cell"><div class="cd-num display" id="cd-h">--</div><div class="cd-label">時 HRS</div></div>
-    <div class="cd-cell"><div class="cd-num display" id="cd-m">--</div><div class="cd-label">分 MIN</div></div>
-    <div class="cd-cell"><div class="cd-num display" id="cd-s">--</div><div class="cd-label">秒 SEC</div></div>
+  <div class="eyebrow">A Global HR Team Exclusive · World Cup 26 Fan Game</div>
+  <h1 class="display"><span class="stroke">Who lifts</span><br><span class="gold">the trophy?</span></h1>
+  <p class="sub">The biggest World Cup ever — <b>48 teams</b>, <b>104 matches</b> — is underway.<br>The Final kicks off <b>July 19</b> at MetLife Stadium, New York. Call the champion before it's decided!</p>
+  <div class="countdown" id="countdown" aria-label="Countdown to the Final">
+    <div class="cd-cell"><div class="cd-num display" id="cd-d">--</div><div class="cd-label">DAYS</div></div>
+    <div class="cd-cell"><div class="cd-num display" id="cd-h">--</div><div class="cd-label">HRS</div></div>
+    <div class="cd-cell"><div class="cd-num display" id="cd-m">--</div><div class="cd-label">MIN</div></div>
+    <div class="cd-cell"><div class="cd-num display" id="cd-s">--</div><div class="cd-label">SEC</div></div>
   </div>
-  <a class="cta" href="#teams">立刻預測我的冠軍 →</a>
+  <a class="cta" href="#teams">Make my pick →</a>
 </header>
 
-<section id="poll">
-  <div class="sec-head"><h2 class="display">全球球迷熱門榜</h2><span class="tag">TOP 10 PICKS</span></div>
-  <p class="sec-desc">依賽前奪冠賠率與球迷聲量模擬的支持度分布。點選任一隊也可直接預測！</p>
-  <div class="poll" id="pollList"></div>
-</section>
-
-<section id="teams">
-  <div class="sec-head"><h2 class="display">48 強選區</h2><span class="tag">PICK YOUR CHAMPION</span></div>
-  <p class="sec-desc">點選你心目中的冠軍球隊。⭐ 代表賽前熱門度（最多五星）。</p>
-  <div class="controls" id="confChips"></div>
-  <div class="controls"><input class="search" id="searchBox" type="text" placeholder="🔍 搜尋球隊，例如：日本、英格蘭…" aria-label="搜尋球隊"></div>
-  <div class="grid" id="teamGrid"></div>
-</section>
-
 <section id="wall">
-  <div class="sec-head"><h2 class="display">辦公室押注牆</h2><span class="tag">WHO PICKED WHAT</span></div>
-  <p class="sec-desc">同事們的冠軍預測即時紀錄。等決賽結束，就知道誰是辦公室裡的足球先知 🔮</p>
+  <div class="sec-head"><h2 class="display">Team Leaderboard</h2><span class="tag">WHO PICKED WHAT</span></div>
+  <p class="sec-desc">Live record of everyone's champion pick. When the Final ends, we'll know who the office oracle is 🔮</p>
   <div id="demoNote" class="demo-note" style="display:none">
-    ⚠️ 目前為「示範模式」：押注只暫存在這個瀏覽器分頁。要讓全公司共用紀錄，請依說明設定 Google Apps Script 後端，並把網址貼到程式碼的 API_URL。
+    ⚠️ Demo mode: picks are stored only in this browser tab. To share records across the team, deploy the Google Apps Script backend and paste its URL into API_URL in the code.
   </div>
   <div class="wall-tally" id="wallTally"></div>
   <div class="wall-list" id="wallList"></div>
+</section>
+
+<section id="teams">
+  <div class="sec-head"><h2 class="display">Pick Your Champion</h2><span class="tag">ALL 48 TEAMS</span></div>
+  <p class="sec-desc">Tap the team you believe will go all the way. ⭐ = pre-tournament hype (max five stars).</p>
+  <div class="controls" id="confChips"></div>
+  <div class="controls"><input class="search" id="searchBox" type="text" placeholder="🔍 Search a team, e.g. Japan, England…" aria-label="Search teams"></div>
+  <div class="grid" id="teamGrid"></div>
+</section>
+
+<section id="poll">
+  <div class="sec-head"><h2 class="display">Global Fan Favorites</h2><span class="tag">TOP 10 CONTENDERS</span></div>
+  <p class="sec-desc">Simulated worldwide support based on pre-tournament title odds. Tap any team to make it your pick!</p>
+  <div class="poll" id="pollList"></div>
 </section>
 
 <div class="overlay" id="overlay" role="dialog" aria-modal="true">
@@ -301,120 +289,121 @@
       <div class="m-flag" id="mFlag"></div>
       <h3 class="display" id="mName"></h3>
       <p class="quote" id="mQuote"></p>
-      <p class="m-stat">全球球迷中有 <b id="mPct"></b> 與你站在同一隊</p>
+      <p class="m-stat"><b id="mPct"></b> of fans worldwide are with you</p>
       <div class="m-form">
-        <input id="voterName" type="text" maxlength="20" placeholder="輸入你的暱稱，例如：Darren" aria-label="你的暱稱">
-        <button id="btnSubmit">確認押注 🔒</button>
+        <input id="voterName" type="text" maxlength="20" placeholder="Your name, e.g. Darren" aria-label="Your name">
+        <button id="btnSubmit">Lock it in 🔒</button>
       </div>
-      <p class="m-hint">押注會記錄在辦公室押注牆上，重複押注以最新一筆為準</p>
+      <p class="m-hint">Your pick goes on the Team Leaderboard. Picking again replaces your previous pick.</p>
       <div class="m-btns">
-        <button class="btn-share" id="btnShare">複製分享文案</button>
-        <button class="btn-close" id="btnClose">繼續觀望</button>
+        <button class="btn-share" id="btnShare">Copy share text</button>
+        <button class="btn-close" id="btnClose">Keep browsing</button>
       </div>
     </div>
   </div>
 </div>
 
 <canvas id="confetti"></canvas>
-<div class="toast" id="toast">已複製，快去揪朋友來預測！</div>
+<div class="toast" id="toast">Copied!</div>
 
 <footer>
-  本頁為球迷自製趣味預測，與 FIFA 國際足球總會無關，不涉及任何投注行為。<br>
-  2026 美加墨世界盃 · 6/11 開幕 — 7/19 決賽（美東時間）· 預測純屬娛樂，足球是圓的 ⚽
+  An unofficial fan game made for the Global HR Team · Not affiliated with FIFA · No real wagers, bragging rights only 😄<br>
+  FIFA World Cup 26 · June 11 – July 19, 2026 · USA / Canada / Mexico · Football is round ⚽
 </footer>
 
 <script>
-/* ───────── 資料：2026 世界盃 48 強 ───────── */
-/* hot = 熱門度權重（參考賽前賠率），用於模擬全球投票占比與星級 */
+/* ───────── Data: all 48 qualified teams ───────── */
+/* hot = hype weight (based on pre-tournament title odds) → fan share % and stars */
 const TEAMS = [
-  // 歐洲 UEFA (16)
-  {n:"西班牙",f:"🇪🇸",code:"es",c:"歐洲",hot:165},
-  {n:"法國",f:"🇫🇷",code:"fr",c:"歐洲",hot:155},
-  {n:"英格蘭",f:"🏴󠁧󠁢󠁥󠁮󠁧󠁿",code:"gb-eng",c:"歐洲",hot:115},
-  {n:"葡萄牙",f:"🇵🇹",code:"pt",c:"歐洲",hot:70},
-  {n:"德國",f:"🇩🇪",code:"de",c:"歐洲",hot:55},
-  {n:"荷蘭",f:"🇳🇱",code:"nl",c:"歐洲",hot:45},
-  {n:"挪威",f:"🇳🇴",code:"no",c:"歐洲",hot:30},
-  {n:"比利時",f:"🇧🇪",code:"be",c:"歐洲",hot:22},
-  {n:"克羅埃西亞",f:"🇭🇷",code:"hr",c:"歐洲",hot:18},
-  {n:"瑞士",f:"🇨🇭",code:"ch",c:"歐洲",hot:12},
-  {n:"土耳其",f:"🇹🇷",code:"tr",c:"歐洲",hot:11},
-  {n:"奧地利",f:"🇦🇹",code:"at",c:"歐洲",hot:10},
-  {n:"瑞典",f:"🇸🇪",code:"se",c:"歐洲",hot:10},
-  {n:"捷克",f:"🇨🇿",code:"cz",c:"歐洲",hot:7},
-  {n:"蘇格蘭",f:"🏴󠁧󠁢󠁳󠁣󠁴󠁿",code:"gb-sct",c:"歐洲",hot:6},
-  {n:"波士尼亞",f:"🇧🇦",code:"ba",c:"歐洲",hot:5},
-  // 南美 CONMEBOL (6)
-  {n:"阿根廷",f:"🇦🇷",code:"ar",c:"南美",hot:130},
-  {n:"巴西",f:"🇧🇷",code:"br",c:"南美",hot:95},
-  {n:"烏拉圭",f:"🇺🇾",code:"uy",c:"南美",hot:24},
-  {n:"哥倫比亞",f:"🇨🇴",code:"co",c:"南美",hot:20},
-  {n:"厄瓜多",f:"🇪🇨",code:"ec",c:"南美",hot:12},
-  {n:"巴拉圭",f:"🇵🇾",code:"py",c:"南美",hot:6},
-  // 中北美 CONCACAF (6)
-  {n:"美國",f:"🇺🇸",code:"us",c:"中北美",hot:18,host:true},
-  {n:"墨西哥",f:"🇲🇽",code:"mx",c:"中北美",hot:14,host:true},
-  {n:"加拿大",f:"🇨🇦",code:"ca",c:"中北美",hot:9,host:true},
-  {n:"巴拿馬",f:"🇵🇦",code:"pa",c:"中北美",hot:3},
-  {n:"海地",f:"🇭🇹",code:"ht",c:"中北美",hot:2},
-  {n:"古拉索",f:"🇨🇼",code:"cw",c:"中北美",hot:2},
-  // 亞洲 AFC (9)
-  {n:"日本",f:"🇯🇵",code:"jp",c:"亞洲",hot:16},
-  {n:"南韓",f:"🇰🇷",code:"kr",c:"亞洲",hot:8},
-  {n:"伊朗",f:"🇮🇷",code:"ir",c:"亞洲",hot:5},
-  {n:"澳洲",f:"🇦🇺",code:"au",c:"亞洲",hot:5},
-  {n:"沙烏地阿拉伯",f:"🇸🇦",code:"sa",c:"亞洲",hot:3},
-  {n:"卡達",f:"🇶🇦",code:"qa",c:"亞洲",hot:2},
-  {n:"烏茲別克",f:"🇺🇿",code:"uz",c:"亞洲",hot:2},
-  {n:"約旦",f:"🇯🇴",code:"jo",c:"亞洲",hot:2},
-  {n:"伊拉克",f:"🇮🇶",code:"iq",c:"亞洲",hot:2},
-  // 非洲 CAF (10)
-  {n:"摩洛哥",f:"🇲🇦",code:"ma",c:"非洲",hot:20},
-  {n:"塞內加爾",f:"🇸🇳",code:"sn",c:"非洲",hot:9},
-  {n:"埃及",f:"🇪🇬",code:"eg",c:"非洲",hot:7},
-  {n:"阿爾及利亞",f:"🇩🇿",code:"dz",c:"非洲",hot:6},
-  {n:"象牙海岸",f:"🇨🇮",code:"ci",c:"非洲",hot:5},
-  {n:"突尼西亞",f:"🇹🇳",code:"tn",c:"非洲",hot:4},
-  {n:"迦納",f:"🇬🇭",code:"gh",c:"非洲",hot:4},
-  {n:"南非",f:"🇿🇦",code:"za",c:"非洲",hot:3},
-  {n:"維德角",f:"🇨🇻",code:"cv",c:"非洲",hot:2},
-  {n:"剛果民主共和國",f:"🇨🇩",code:"cd",c:"非洲",hot:2},
-  // 大洋洲 OFC (1)
-  {n:"紐西蘭",f:"🇳🇿",code:"nz",c:"大洋洲",hot:2},
+  // Europe / UEFA (16)
+  {n:"Spain",f:"🇪🇸",code:"es",c:"Europe",hot:165},
+  {n:"France",f:"🇫🇷",code:"fr",c:"Europe",hot:155},
+  {n:"England",f:"🏴󠁧󠁢󠁥󠁮󠁧󠁿",code:"gb-eng",c:"Europe",hot:115},
+  {n:"Portugal",f:"🇵🇹",code:"pt",c:"Europe",hot:70},
+  {n:"Germany",f:"🇩🇪",code:"de",c:"Europe",hot:55},
+  {n:"Netherlands",f:"🇳🇱",code:"nl",c:"Europe",hot:45},
+  {n:"Norway",f:"🇳🇴",code:"no",c:"Europe",hot:30},
+  {n:"Belgium",f:"🇧🇪",code:"be",c:"Europe",hot:22},
+  {n:"Croatia",f:"🇭🇷",code:"hr",c:"Europe",hot:18},
+  {n:"Switzerland",f:"🇨🇭",code:"ch",c:"Europe",hot:12},
+  {n:"Türkiye",f:"🇹🇷",code:"tr",c:"Europe",hot:11},
+  {n:"Austria",f:"🇦🇹",code:"at",c:"Europe",hot:10},
+  {n:"Sweden",f:"🇸🇪",code:"se",c:"Europe",hot:10},
+  {n:"Czechia",f:"🇨🇿",code:"cz",c:"Europe",hot:7},
+  {n:"Scotland",f:"🏴󠁧󠁢󠁳󠁣󠁴󠁿",code:"gb-sct",c:"Europe",hot:6},
+  {n:"Bosnia & Herzegovina",f:"🇧🇦",code:"ba",c:"Europe",hot:5},
+  // South America / CONMEBOL (6)
+  {n:"Argentina",f:"🇦🇷",code:"ar",c:"S. America",hot:130},
+  {n:"Brazil",f:"🇧🇷",code:"br",c:"S. America",hot:95},
+  {n:"Uruguay",f:"🇺🇾",code:"uy",c:"S. America",hot:24},
+  {n:"Colombia",f:"🇨🇴",code:"co",c:"S. America",hot:20},
+  {n:"Ecuador",f:"🇪🇨",code:"ec",c:"S. America",hot:12},
+  {n:"Paraguay",f:"🇵🇾",code:"py",c:"S. America",hot:6},
+  // North & Central America / CONCACAF (6)
+  {n:"USA",f:"🇺🇸",code:"us",c:"N. America",hot:18,host:true},
+  {n:"Mexico",f:"🇲🇽",code:"mx",c:"N. America",hot:14,host:true},
+  {n:"Canada",f:"🇨🇦",code:"ca",c:"N. America",hot:9,host:true},
+  {n:"Panama",f:"🇵🇦",code:"pa",c:"N. America",hot:3},
+  {n:"Haiti",f:"🇭🇹",code:"ht",c:"N. America",hot:2},
+  {n:"Curaçao",f:"🇨🇼",code:"cw",c:"N. America",hot:2},
+  // Asia / AFC (9)
+  {n:"Japan",f:"🇯🇵",code:"jp",c:"Asia",hot:16},
+  {n:"South Korea",f:"🇰🇷",code:"kr",c:"Asia",hot:8},
+  {n:"Iran",f:"🇮🇷",code:"ir",c:"Asia",hot:5},
+  {n:"Australia",f:"🇦🇺",code:"au",c:"Asia",hot:5},
+  {n:"Saudi Arabia",f:"🇸🇦",code:"sa",c:"Asia",hot:3},
+  {n:"Qatar",f:"🇶🇦",code:"qa",c:"Asia",hot:2},
+  {n:"Uzbekistan",f:"🇺🇿",code:"uz",c:"Asia",hot:2},
+  {n:"Jordan",f:"🇯🇴",code:"jo",c:"Asia",hot:2},
+  {n:"Iraq",f:"🇮🇶",code:"iq",c:"Asia",hot:2},
+  // Africa / CAF (10)
+  {n:"Morocco",f:"🇲🇦",code:"ma",c:"Africa",hot:20},
+  {n:"Senegal",f:"🇸🇳",code:"sn",c:"Africa",hot:9},
+  {n:"Egypt",f:"🇪🇬",code:"eg",c:"Africa",hot:7},
+  {n:"Algeria",f:"🇩🇿",code:"dz",c:"Africa",hot:6},
+  {n:"Côte d'Ivoire",f:"🇨🇮",code:"ci",c:"Africa",hot:5},
+  {n:"Tunisia",f:"🇹🇳",code:"tn",c:"Africa",hot:4},
+  {n:"Ghana",f:"🇬🇭",code:"gh",c:"Africa",hot:4},
+  {n:"South Africa",f:"🇿🇦",code:"za",c:"Africa",hot:3},
+  {n:"Cape Verde",f:"🇨🇻",code:"cv",c:"Africa",hot:2},
+  {n:"DR Congo",f:"🇨🇩",code:"cd",c:"Africa",hot:2},
+  // Oceania / OFC (1)
+  {n:"New Zealand",f:"🇳🇿",code:"nz",c:"Oceania",hot:2},
 ];
 
-/* 真實國旗圖（flagcdn），載入失敗時退回 emoji */
-const flagImg=(t,w)=>`<img class="fimg" src="https://flagcdn.com/w${w}/${t.code}.png" srcset="https://flagcdn.com/w${w*2}/${t.code}.png 2x" alt="${t.n}國旗" loading="lazy" onerror="this.outerHTML='${t.f}'">`;
+/* Real flag images (flagcdn), falling back to emoji if blocked */
+const flagImg=(t,w)=>`<img class="fimg" src="https://flagcdn.com/w${w}/${t.code}.png" srcset="https://flagcdn.com/w${w*2}/${t.code}.png 2x" alt="Flag of ${t.n}" loading="lazy" onerror="this.outerHTML='${t.f}'">`;
 
 const QUOTES = {
-  "西班牙":"歐國盃冠軍班底 + 18 歲的亞瑪爾，傳控王朝要連莊歐洲與世界？",
-  "法國":"姆巴佩領軍的衛冕級豪華陣容，世界第一不是叫假的。",
-  "阿根廷":"梅西的最後一舞！衛冕冠軍要寫下二連霸傳奇。",
-  "英格蘭":"三獅軍團年年熱門，這次「足球回家」會成真嗎？",
-  "巴西":"森巴軍團瞄準史無前例的第六冠，Hexa 之夢！",
-  "葡萄牙":"C 羅第六次世界盃，職業生涯最後的拼圖就差這一塊。",
-  "德國":"日耳曼戰車重新上膛，大賽底蘊從不讓人小看。",
-  "日本":"藍武士越級打怪專家，亞洲之光衝擊史上最佳成績！",
-  "摩洛哥":"上屆四強黑馬，亞特拉斯雄獅這次想走得更遠。",
-  "挪威":"哈蘭德的世界盃首秀，進球機器全速運轉中。",
-  "美國":"地主優勢拉滿，星條旗軍團要在自家後院搞大事？",
-  "墨西哥":"阿茲特克球場開幕戰主角，地主魔咒能否打破？",
-  "烏拉圭":"兩屆冠軍的硬漢足球，永遠不能排除的攪局者。",
+  "Spain":"Euro champions with 18-year-old Yamal pulling the strings — can the dynasty go back-to-back?",
+  "France":"Mbappé leads a loaded squad. Ranked world No. 1 for a reason.",
+  "Argentina":"Messi's last dance — the defending champions chase back-to-back glory.",
+  "England":"Perennial favorites. Is football finally coming home?",
+  "Brazil":"The Seleção hunts the Hexa — an unprecedented sixth star.",
+  "Portugal":"Ronaldo's sixth World Cup. One trophy left on the bucket list.",
+  "Germany":"Never count out the tournament machine.",
+  "Netherlands":"Total football, zero titles — is this the year that changes?",
+  "Japan":"The Samurai Blue, certified giant-slayers, chasing their best run ever.",
+  "Morocco":"2022 semifinalists — the Atlas Lions are hungry for more.",
+  "Norway":"Haaland's World Cup debut. The goal machine is fully warmed up.",
+  "USA":"Home soil, home crowd — can the hosts go big in their own backyard?",
+  "Mexico":"El Tri opened the party at the Azteca. Time to break the quarterfinal curse?",
+  "Uruguay":"Two-time champions. Forever dangerous, never glamorous.",
 };
-const DEFAULT_QUOTE = q=>`眼光獨到！${q}若真捧盃，你就是朋友圈裡的足球先知 🔮`;
+const DEFAULT_QUOTE = q=>`Bold call! If ${q} lift the trophy, you're officially the office oracle 🔮`;
 
-/* ───────── 狀態 ───────── */
+/* ───────── State ───────── */
 let myPick = null;
-let filterConf = "全部";
+let filterConf = "All";
 let keyword = "";
 const totalHot = TEAMS.reduce((s,t)=>s+t.hot,0);
 const pct = t => (t.hot/totalHot*100);
 const stars = t => "⭐".repeat(Math.min(5, Math.max(0, Math.round(Math.log2(t.hot/3)))));
 
-/* ───────── 押注後端設定 ─────────
-   把 Google Apps Script 部署後的「網路應用程式網址」貼在下面引號內，
-   例如 "https://script.google.com/macros/s/AKfy.../exec"
-   留空 = 示範模式（押注只存在本機，重新整理會消失）            */
+/* ───────── Backend config ─────────
+   Paste your deployed Google Apps Script Web App URL between the quotes,
+   e.g. "https://script.google.com/macros/s/AKfy.../exec"
+   Leave empty = demo mode (picks live only in this browser tab)        */
 const API_URL = "https://script.google.com/macros/s/AKfycbzvh71YjhRrDktRA34eOBePOXeoxv83GQ48jD-W9jzsSaGEAu8wPIikP1hCmvvr99SL/exec";
 
 let votes = []; // {name, team, ts}
@@ -426,37 +415,37 @@ async function loadVotes(){
     const r = await fetch(API_URL);
     const data = await r.json();
     if(Array.isArray(data)) votes = data;
-  }catch(e){ console.warn("讀取押注紀錄失敗", e); }
+  }catch(e){ console.warn("Failed to load picks", e); }
   renderWall();
 }
 
 async function submitVote(){
   const input = document.getElementById("voterName");
   const name = input.value.trim();
-  if(!name){ input.focus(); input.placeholder="先填暱稱才能押注喔！"; return; }
+  if(!name){ input.focus(); input.placeholder="Enter your name first!"; return; }
   if(!current) return;
   const vote = { name, team: current.n, ts: Date.now() };
   const btn = document.getElementById("btnSubmit");
-  btn.disabled = true; btn.textContent = "送出中…";
+  btn.disabled = true; btn.textContent = "Saving…";
   if(API_URL){
     try{
-      await fetch(API_URL, { method:"POST", body: JSON.stringify(vote) }); // text/plain 避開 CORS 預檢
+      await fetch(API_URL, { method:"POST", body: JSON.stringify(vote) }); // text/plain avoids CORS preflight
       await loadVotes();
     }catch(e){
-      console.warn("送出失敗，改存本機", e);
+      console.warn("Submit failed, keeping it local", e);
       votes.push(vote); renderWall();
     }
   }else{
     votes.push(vote); renderWall();
   }
   try{ if(window.storage) window.storage.set("wc2026-name", name); }catch(e){}
-  btn.disabled = false; btn.textContent = "確認押注 🔒";
+  btn.disabled = false; btn.textContent = "Lock it in 🔒";
   overlay.classList.remove("show");
-  showToastMsg(`${name} 押 ${current.n}，已記錄！🏆`);
+  showToastMsg(`${name} picked ${current.n} — recorded! 🏆`);
   document.getElementById("wall").scrollIntoView({behavior:"smooth"});
 }
 
-/* 同名取最新一筆 */
+/* Latest pick per person wins */
 function latestVotes(){
   const map = new Map();
   [...votes].sort((a,b)=>a.ts-b.ts).forEach(v=>map.set(v.name, v));
@@ -470,11 +459,10 @@ function renderWall(){
 
   if(!lv.length){
     tallyBox.innerHTML = "";
-    listBox.innerHTML = '<div class="wall-empty" style="grid-column:1/-1">還沒有人押注——當第一個寫下預測的人！⚽</div>';
+    listBox.innerHTML = '<div class="wall-empty" style="grid-column:1/-1">No picks yet — be the first to call the champion! ⚽</div>';
     return;
   }
 
-  // 各隊票數統計
   const counts = {};
   lv.forEach(v=>counts[v.team]=(counts[v.team]||0)+1);
   const max = Math.max(...Object.values(counts));
@@ -486,26 +474,25 @@ function renderWall(){
         <div>${flagImg(t,40)}</div>
         <div style="font-weight:700">${team}</div>
         <div class="poll-track"><div class="poll-fill" style="width:${(c/max*100).toFixed(0)}%"></div></div>
-        <div class="cnt">${c} 票</div>
+        <div class="cnt">${c} ${c===1?"pick":"picks"}</div>
       </div>`;
     }).join("");
 
-  // 押注紀錄卡
   listBox.innerHTML = lv.map(v=>{
     const t = teamByName(v.team);
     const d = new Date(Number(v.ts)||v.ts);
-    const time = isNaN(d) ? "" : `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;
+    const time = isNaN(d) ? "" : d.toLocaleDateString(undefined,{month:"short",day:"numeric"})+" "+d.toLocaleTimeString(undefined,{hour:"2-digit",minute:"2-digit"});
     return `<div class="vote-card">
       ${t?flagImg(t,40):"⚽"}
-      <div><div class="v-name">${escapeHtml(v.name)}</div><div class="v-team">押 ${escapeHtml(v.team)} 奪冠</div></div>
+      <div><div class="v-name">${escapeHtml(v.name)}</div><div class="v-team">Picked ${escapeHtml(v.team)}</div></div>
       <div class="v-time">${time}</div>
     </div>`;
   }).join("");
 }
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
 
-/* ───────── 倒數計時（決賽：台北時間 2026/7/20 凌晨） ───────── */
-const FINAL = new Date("2026-07-20T03:00:00+08:00");
+/* ───────── Countdown (Final: July 19, 2026, 3:00 PM ET) ───────── */
+const FINAL = new Date("2026-07-19T15:00:00-04:00");
 function tick(){
   let diff = Math.max(0, FINAL - Date.now());
   const d = Math.floor(diff/864e5); diff%=864e5;
@@ -519,7 +506,7 @@ const cdD=document.getElementById("cd-d"),cdH=document.getElementById("cd-h"),
       cdM=document.getElementById("cd-m"),cdS=document.getElementById("cd-s");
 tick(); setInterval(tick,1000);
 
-/* ───────── 熱門榜 ───────── */
+/* ───────── Fan favorites poll ───────── */
 function renderPoll(){
   const list=document.getElementById("pollList");
   const top=[...TEAMS].sort((a,b)=>b.hot-a.hot).slice(0,10);
@@ -531,7 +518,7 @@ function renderPoll(){
     row.innerHTML=`
       <div class="poll-flag">${flagImg(t,40)}</div>
       <div class="poll-mid">
-        <div class="poll-name">#${i+1} ${t.n}${isMine?'<span class="you">我的預測</span>':''}</div>
+        <div class="poll-name">#${i+1} ${t.n}${isMine?'<span class="you">MY PICK</span>':''}</div>
         <div class="poll-track"><div class="poll-fill" data-w="${pct(t).toFixed(1)}"></div></div>
       </div>
       <div class="poll-pct">${pct(t).toFixed(1)}%</div>`;
@@ -544,8 +531,8 @@ function renderPoll(){
   }));
 }
 
-/* ───────── 球隊網格 ───────── */
-const CONFS=["全部","歐洲","南美","中北美","亞洲","非洲","大洋洲"];
+/* ───────── Team grid ───────── */
+const CONFS=["All","Europe","S. America","N. America","Asia","Africa","Oceania"];
 function renderChips(){
   const box=document.getElementById("confChips"); box.innerHTML="";
   CONFS.forEach(c=>{
@@ -558,7 +545,7 @@ function renderChips(){
 function renderGrid(){
   const grid=document.getElementById("teamGrid"); grid.innerHTML="";
   TEAMS
-    .filter(t=>(filterConf==="全部"||t.c===filterConf)&&t.n.includes(keyword))
+    .filter(t=>(filterConf==="All"||t.c===filterConf)&&t.n.toLowerCase().includes(keyword.toLowerCase()))
     .forEach(t=>{
       const card=document.createElement("button");
       card.className="team"+(myPick===t.n?" picked":"");
@@ -570,18 +557,18 @@ function renderGrid(){
       card.addEventListener("click",()=>pick(t));
       grid.appendChild(card);
     });
-  if(!grid.children.length) grid.innerHTML='<p style="color:var(--muted);grid-column:1/-1;text-align:center;padding:30px 0">找不到這支球隊，換個關鍵字試試？</p>';
+  if(!grid.children.length) grid.innerHTML='<p style="color:var(--muted);grid-column:1/-1;text-align:center;padding:30px 0">No team found — try another name?</p>';
 }
 document.getElementById("searchBox").addEventListener("input",e=>{keyword=e.target.value.trim();renderGrid();});
 
-/* ───────── 預測 & Modal ───────── */
+/* ───────── Pick & modal ───────── */
 const overlay=document.getElementById("overlay");
 let current=null;
 function pick(t){
   myPick=t.n; current=t;
   try{ if(window.storage) window.storage.set("wc2026-pick", t.n); }catch(e){}
   document.getElementById("mFlag").innerHTML=flagImg(t,160);
-  document.getElementById("mName").textContent=`${t.n} 奪冠！`;
+  document.getElementById("mName").textContent=`${t.n} to win it all!`;
   document.getElementById("mQuote").textContent=QUOTES[t.n]||DEFAULT_QUOTE(t.n);
   document.getElementById("mPct").textContent=pct(t).toFixed(1)+"%";
   overlay.classList.add("show");
@@ -591,9 +578,9 @@ document.getElementById("btnClose").addEventListener("click",()=>overlay.classLi
 overlay.addEventListener("click",e=>{if(e.target===overlay)overlay.classList.remove("show")});
 document.getElementById("btnShare").addEventListener("click",()=>{
   if(!current)return;
-  const text=`🏆 我預測 2026 世界盃冠軍是 ${current.f} ${current.n}！全球只有 ${pct(current).toFixed(1)}% 的球迷跟我同隊，你呢？⚽`;
+  const text=`🏆 My 2026 World Cup champion pick: ${current.f} ${current.n}! Only ${pct(current).toFixed(1)}% of fans worldwide are with me — what's yours? ⚽`;
   (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject())
-    .then(()=>showToastMsg("已複製，快去揪朋友來預測！")).catch(()=>{prompt("複製這段文案分享給朋友：",text);});
+    .then(()=>showToastMsg("Copied — go challenge your colleagues!")).catch(()=>{prompt("Copy this and share it:",text);});
 });
 document.getElementById("btnSubmit").addEventListener("click",submitVote);
 document.getElementById("voterName").addEventListener("keydown",e=>{if(e.key==="Enter")submitVote()});
@@ -603,7 +590,7 @@ function showToastMsg(msg){
   t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),2400);
 }
 
-/* ───────── 彩帶 ───────── */
+/* ───────── Confetti ───────── */
 function confetti(){
   if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
   const cv=document.getElementById("confetti"),ctx=cv.getContext("2d");
@@ -629,7 +616,7 @@ function confetti(){
   })();
 }
 
-/* ───────── 初始化（讀回先前預測 & 押注紀錄） ───────── */
+/* ───────── Init ───────── */
 (async function init(){
   try{
     if(window.storage){
@@ -641,7 +628,7 @@ function confetti(){
   }catch(e){}
   renderChips(); renderGrid(); renderPoll();
   loadVotes();
-  if(API_URL) setInterval(loadVotes, 30000); // 每 30 秒自動更新押注牆
+  if(API_URL) setInterval(loadVotes, 30000); // refresh the leaderboard every 30s
 })();
 </script>
 </body>
